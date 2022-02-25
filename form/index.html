@@ -1,0 +1,42 @@
+<?php 
+session_start();
+include_once "contact.php";
+
+?>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="lolkittens" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <meta name="viewort" content="width=device-width" />
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Contact form design</title>
+</head>
+
+<body>
+<a href="qmanrocket@gmail.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a class="btn-fill btn-blue sanbg" href="https://api.whatsapp.com/send?phone=+234 703 900 1643&amp;text=Hi there! :)"><i class="fa fa-whatsapp" aria-hidden="true"></i> </a>
+
+<div class="contact-title">
+      <h1>Say Hello</h1>
+     <h2>We are always ready to serve you!</h2>
+</div>
+<div class="contact-form">
+<form id="contact-form" method="post" action="#">
+<input type="text" name="name" class="form-control" placeholder="Your Name"><br />
+<input type="email" name="email" class="form-control" placeholder="Your Email"><br />
+<textarea  name="message" class="form-control" placeholder="Message" cols="5" rows="5"></textarea><br />
+<input type="submit" name="massage" class="form-control submit" value="Send Messages"><br />
+
+</form>
+
+</div>
+
+</body>
+</html>

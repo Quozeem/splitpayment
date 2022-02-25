@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rave integration example</title>
+    <style>
+    h1{
+  text-align: center;
+}
+
+input[type=email],input[type=text]{
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+    </style>
+</head>
+<body>
+ <div class="card">
+    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Denim Jeans" style="width:100%">
+    <h1>Tailored Jeans</h1>
+    <p class="price">&#8358;3000</p>
+    <form action="">
+      <input type="hidden" id="amount" name="amount" value="3000">
+      <input type="email" id="email" name="email" placeholder="email" value="customer@gmail.com">
+      <input type="text" id="phone" placeholder="phone number" name="phone" value="08012345678">
+      
+      <p><button type="submit" id="submit">Buy Now</button></p>
+    </form>
+   
+    
+  </div>
+  <script type="text/javascript" src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+ <script>
+document.addEventListener("DOMContentLoaded", (event) => {
+        // Add an event listener for when the user clicks the submit button to pay
+        document.getElementById("submit").addEventListener("click", (e) => {
+            e.preventDefault();
+            const PBFKey = ""; // paste in the public key from your dashboard here
+            const txRef = ''+Math.floor((Math.random() * 1000000000) + 1); //Generate a random id for the transaction reference
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const amount = document.getElementById('amount').value;
+            
+           
+
+            // getpaidSetup is Rave's inline script function. it holds the payment data to pass to Rave.
+        getpaidSetup({
+            PBFPubKey: PBFKey,
+            customer_email: email,
+            amount: amount,
+            customer_phone: phone,
+            currency: "NGN",  // Select the currency. leaving it empty defaults to NGN
+            txref: txRef, // Pass your UNIQUE TRANSACTION REFERENCE HERE.
+        
+            onclose: function() {},
+            callback: function(response) {
+                flw_ref = response.tx.flwRef;// collect flwRef returned and pass to a server page to complete status check.
+                console.log("This is the response returned after a charge", response);
+                if(response.tx.chargeResponse =='00' || response.tx.chargeResponse == '0') {
+                // redirect to a success page
+                } else {
+                // redirect to a failure page.
+                }
+            }
+          });
+        });
+    });
+</script>
+</body>
+</html>

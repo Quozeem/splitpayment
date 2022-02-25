@@ -1,0 +1,52 @@
+body {
+margin: 0;
+padding:0;
+text-align: center;
+font-family: sans serif;
+background-color: #cce0ff;
+}
+.contact-title {
+   margin-top: 100px; 
+    color:#fff;
+    text-transform:uppercase;
+    line-height: 10px;
+    transition: all 4s ease-in-out;
+   
+}
+.contact-title h1 {
+    font-size: 32px;
+    line-height:10px;
+}
+.contact-title h2 {
+    font-size: 16px;
+}
+.form {
+    margin-top: 50px;
+    transition: all 4s ease-in-out;
+
+}
+.form-control{
+    width: 600px;
+    background: transparent;
+    outline:none;
+    color:#fff;
+    font-size:10px;
+    padding: 10px;
+    border: none;
+    margin-bottom:16px;
+    border-bottom: 1px solid grey;
+}
+input[type=submit],select {
+    background:#ff5722;
+    color:#fff;
+    height: 50px;
+    margin-top: 20px;
+    border-color: transparent;
+    font-weight:bold;
+    letter-spacing:2px;
+
+}
+    input[type=submit]:hover{
+        background-color: #f44336;
+        cursor: pointer;
+    }
