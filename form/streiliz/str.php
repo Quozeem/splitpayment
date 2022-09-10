@@ -48,6 +48,8 @@ return true;
 <label>Male</label>
 <input name="gender" type="radio" value="Female">
 <label>Female</label>
+
+
 <label>Language known :</label>
 <input name="language" type="checkbox" value="Spanish">
 <label>Spanish</label> <input name="language" type="checkbox" value="French">
